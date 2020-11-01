@@ -19,7 +19,10 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
-        "drupal/devel": "^4.0"
+        "drupal/devel": "^4.0",
+        "drupal/jsonapi_extras": "^3.16",
+        "drupal/restui": "^1.18",
+        "drush/drush": "^10"
     },
     "require-dev": {
         "drupal/core-dev": "^9"
