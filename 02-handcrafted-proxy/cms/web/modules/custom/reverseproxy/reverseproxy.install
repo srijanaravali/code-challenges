@@ -1,0 +1,75 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the module.
+ */
+ use Drupal\Core\Database\Database;
+/**
+ * Implements hook_uninstall().
+ */
+function reverseproxy_uninstall() {
+  $connection = \Drupal\Core\Database\Database::getConnection();
+  $connection->schema()->dropTable('reverseproxy_data');
+}
+
+/**
+ * Implements hook_install()
+ *
+ */
+function reverseproxy_install() {
+  $schema_data = array();
+  $schema_data = [
+    'description' => 'Store end points and target proxy',
+    'fields'      => [
+      'id'              => [
+        'description' => 'unique ID.',
+        'type'        => 'serial',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+      ],
+      'deployment'      => [
+        'description' => 'The Web access URL.',
+        'type'        => 'varchar',
+        'length'      => 64,
+        'not null'    => TRUE,
+        'default'     => '',
+      ],
+      'endpoint'        => [
+        'description' => 'End point URL.',
+        'type'        => 'varchar',
+        'length'      => 128,
+        'not null'    => TRUE,
+        'default'     => '',
+      ],
+      'target'          => [
+        'description' => 'Target URL.',
+        'type'        => 'varchar',
+        'length'      => 128,
+        'not null'    => TRUE,
+        'default'     => '',
+      ],
+      'response_format' => [
+        'description' => 'Response format.',
+        'type'        => 'varchar',
+        'length'      => 128,
+        'not null'    => TRUE,
+        'default'     => '',
+      ],
+      'method_type'   => [
+        'description' => 'Method Type.',
+        'type'        => 'varchar',
+        'length'      => 128,
+        'not null'    => TRUE,
+        'default'     => '',
+      ],
+	  'header'        => [
+        'description' => 'Header',
+        'type'        => 'text',
+        'not null'    => FALSE
+      ],
+    ],
+    'primary key' => ['id']
+  ];
+  $schema = \Drupal\Core\Database\Database::getConnection()->schema();
+  $schema->createTable('reverseproxy_data', $schema_data);
+}

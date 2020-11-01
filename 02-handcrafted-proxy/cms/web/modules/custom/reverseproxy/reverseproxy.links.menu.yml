@@ -1,0 +1,21 @@
+reverseproxy.menu:
+  title: 'Reverse Proxy'
+  description: 'Manage Reverse Proxy Endpoints'
+  parent: system.admin_config
+  route_name: reverseproxy.settings
+  weight: 100
+  position: left
+
+reverseproxy.endpoints:
+  title: 'End Points'
+  description: 'Manage Reverse Proxy Endpoints'
+  parent: reverseproxy.menu
+  route_name: reverseproxy.list
+  weight: 10
+  
+reverseproxy.add:
+  title: 'Add End Point'
+  description: 'Add Reverse Proxy Endpoint'
+  parent: reverseproxy.menu
+  route_name: reverseproxy.settings
+  weight: 20

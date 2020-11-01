@@ -1,0 +1,46 @@
+reverseproxy.settings:
+  path: '/admin/config/reverseproxy/settings'
+  defaults:
+    _form: '\Drupal\reverseproxy\Form\ReverseProxy'
+    _title: 'Reverse Proxy Endpoint'
+  requirements:
+    _permission: 'Manage Proxy End Point'
+  options:
+    _admin_route: TRUE
+    
+reverseproxy.list:
+  path: '/admin/config/reverseproxy'
+  defaults:
+    _title: 'Reverse Proxy Endpoints'
+    _controller: '\Drupal\reverseproxy\Controller\ReverseProxy::listEndPoints'
+  requirements:
+    _permission: 'Manage Proxy End Point'
+  options:
+    _admin_route: TRUE
+    
+reverseproxy.edit_form:
+  path: '/admin/config/reverseproxy/edit/{id}'
+  defaults:
+    _form: '\Drupal\reverseproxy\Form\ReverseProxy'
+    _title: 'Reverse Proxy Endpoint'
+  requirements:
+    _permission: 'Manage Proxy End Point'
+  options:
+    _admin_route: TRUE
+    
+reverseproxy.delete_form:
+  path: '/admin/config/reverseproxy/delete/{id}'
+  defaults:
+    _controller: '\Drupal\reverseproxy\Controller\ReverseProxy::deleteEndPoint'
+    _title: 'Reverse Proxy Endpoint'
+  requirements:
+    _permission: 'Manage Proxy End Point'
+  options:
+    _admin_route: TRUE
+    
+reverseproxy.webpath:
+  path: '/reverseproxy/accessweb/{endpoint}'
+  defaults:
+    _controller: '\Drupal\reverseproxy\Controller\ReverseProxy::callEndpointService'
+  requirements: 
+    _permission: 'access content' 
