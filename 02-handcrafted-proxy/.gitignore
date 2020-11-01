@@ -1,0 +1,91 @@
+# This file contains default .gitignore rules. To use it, copy it to .gitignore,
+# and it will cause files like your settings.php and user-uploaded files to be
+# excluded from Git version control. This is a common strategy to avoid
+# accidentally including private information in public repositories and patch
+# files.
+#
+#
+# Because .gitignore can be specific to your site, this file has a different
+# name; updating Drupal core will not override your custom .gitignore file.
+
+# Ignore core when managing all of a project's dependencies with Composer
+# including Drupal core.
+# core
+
+# Core's dependencies are managed with Composer.
+cms/vendor
+
+# Ignore paths that contain generated content.
+cache/
+.project
+.idea
+
+
+# OS X folder icon (includes \r\r at end)
+Icon
+
+# Test Artefacts and Codeception
+tests/_output
+
+#vim
+*.swp
+*.swo
+*~
+
+# Users Environment Variables
+.lock-wscript
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Logs
+logs
+*.log
+
+# OS generated files
+*/.DS_Store
+*/.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore configuration files that may contain sensitive information.
+cms/web/sites/*/settings*.php
+cms/web/sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+cms/web/sites/*/files
+cms/web/sites/*/private
+
+# ignore contrib modules
+cms/web/modules/contrib/*
+
+# If you prefer to store your .gitignore file in the sites/ folder, comment
+# or delete the previous settings and uncomment the following ones, instead.
+
+# Ignore configuration files that may contain sensitive information.
+cms/*/settings.php
+*/settings*.php
+
+# Ignore paths that contain user-generated content.
+*/files
+*/private
+
+# Ignore SimpleTest multi-site environment.
+# simpletest
+
+# Ignore core phpcs.xml and phpunit.xml.
+core/phpcs.xml
+core/phpunit.xml
+
+# Composer
+composer.lock
+
+cms/nbproject/
+
+tests/src/test/resources/DataSource1\.xls
