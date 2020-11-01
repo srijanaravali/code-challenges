@@ -1,0 +1,8 @@
+name: Reverse Proxy
+description: 'Setup Reverse Proxy server'
+type: module
+package: custom
+core_version_requirement: ^8 || ^9
+version: '9.0.0'
+project: 'reverse_proxy'
+datestamp: 1591528436
